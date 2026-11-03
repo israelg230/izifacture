@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+  }
+
+  * {
+    border-color: #e2e8f0;
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Subtle flat scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print optimization for official A4 invoice PDF generation */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Hide navigation, sidebars, headers, action buttons during PDF export */
+  header,
+  aside,
+  nav,
+  button,
+  .no-print,
+  #print-controls {
+    display: none !important;
+  }
+
+  /* Remove outer layouts constraints */
+  body,
+  main,
+  div.min-h-screen,
+  div.flex-1 {
+    min-height: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* Render invoice paper in high fidelity */
+  #invoice-paper {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
