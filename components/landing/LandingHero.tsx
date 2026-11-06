@@ -31,11 +31,14 @@ export function LandingHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16">
           {/* Left Column: Headline, Description & CTAs */}
           <div className="lg:col-span-7">
-            <h1 className="reveal-on-scroll font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-6">
-              Fini les factures bricolées sur Word et Excel.
+            <h1 className="reveal-on-scroll font-display text-4xl sm:text-5xl lg:text-[4.15rem] font-bold tracking-tight text-slate-950 leading-[1.08] mb-6">
+              La facturation d'excellence,{" "}
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
+                conçue pour l'Afrique moderne.
+              </span>
             </h1>
             <p className="reveal-on-scroll text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl font-normal mb-8">
-              iziFacture est le logiciel ultra-rapide pensé pour les entrepreneurs africains : générez des factures professionnelles en FCFA, calculez la TVA 18% sans erreur et faites-vous payer à temps.
+              Élevez le standard de votre entreprise avec des factures certifiées conformes en FCFA, un calcul rigoureux de la TVA 18% et des encaissements Mobile Money deux fois plus rapides.
             </p>
 
             {/* Hero CTAs */}

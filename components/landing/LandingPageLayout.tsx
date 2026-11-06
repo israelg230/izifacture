@@ -18,7 +18,7 @@ export function LandingPageLayout() {
   useScrollReveal();
 
   return (
-    <div className="font-sans antialiased text-slate-900 bg-[#FBFBFD] selection:bg-slate-900 selection:text-white min-h-screen flex flex-col">
+    <div className="landing-root font-sans antialiased text-slate-900 bg-[#FBFBFD] selection:bg-slate-900 selection:text-white min-h-screen flex flex-col">
       <LandingHeader />
       <main className="flex-1">
         <LandingHero />

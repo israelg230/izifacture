@@ -1,6 +1,20 @@
 import type { Metadata } from "next";
-import { Manrope, Inter } from "next/font/google";
+import { Manrope, Inter, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -34,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${manrope.variable} ${inter.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} ${manrope.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full font-sans bg-[#faf9f6] text-ink-900 selection:bg-lavender-200 selection:text-lavender-900">
         <AuthProvider>

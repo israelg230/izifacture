@@ -57,8 +57,10 @@ const config: Config = {
         glow: "0 0 30px -5px rgba(124, 92, 252, 0.25)",
       },
       fontFamily: {
-        sans: ["var(--font-manrope)", "var(--font-inter)", "sans-serif"],
-        display: ["var(--font-manrope)", "sans-serif"],
+        sans: ["var(--font-plus-jakarta)", "var(--font-manrope)", "var(--font-inter)", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "var(--font-plus-jakarta)", "var(--font-manrope)", "sans-serif"],
+        jakarta: ["var(--font-plus-jakarta)", "sans-serif"],
+        space: ["var(--font-space-grotesk)", "sans-serif"],
       },
     },
   },
