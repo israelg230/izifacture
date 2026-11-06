@@ -11,19 +11,20 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   const isAuthPage = pathname === "/connexion" || pathname === "/login";
+  const isPublicPage = isAuthPage || pathname === "/" || pathname === "/landing";
 
   useEffect(() => {
     if (!isLoading) {
-      if (!isAuthenticated && !isAuthPage) {
+      if (!isAuthenticated && !isPublicPage) {
         router.push("/connexion");
       } else if (isAuthenticated && isAuthPage) {
-        router.push("/");
+        router.push("/dashboard");
       }
     }
-  }, [isAuthenticated, isLoading, isAuthPage, router]);
+  }, [isAuthenticated, isLoading, isPublicPage, isAuthPage, router]);
 
-  // Loading state with smooth transition
-  if (isLoading) {
+  // Loading state with smooth transition (only for protected pages or auth)
+  if (isLoading && !isPublicPage) {
     return (
       <div className="min-h-screen bg-[#faf9f6] flex flex-col items-center justify-center p-4">
         <div className="flex flex-col items-center gap-4 animate-in fade-in duration-300">
@@ -40,7 +41,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   }
 
   // Not authenticated on protected route -> prevent render until redirect triggers
-  if (!isAuthenticated && !isAuthPage) {
+  if (!isAuthenticated && !isPublicPage) {
     return null;
   }
 

@@ -1,0 +1,243 @@
+/* ==========================================================================
+   iziFacture — Styles Dédiés Landing Page
+   Aucun style in-line. Tout est modulable, responsive et fluide.
+   ========================================================================== */
+
+/* 1. Motif de Grille d'Arrière-plan Moderne */
+.landing-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+}
+
+/* 2. Carte Sombre Showcase (Luxe & Profondeur) */
+.dark-showcase-card {
+  background: radial-gradient(120% 120% at 50% 0%, #1e293b 0%, #0b0f19 100%);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  box-shadow: 0 25px 50px -12px rgba(11, 15, 25, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* 3. Reflet Scintillant sur les Badges */
+@keyframes badgeShimmerAnim {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.badge-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: badgeShimmerAnim 3.2s infinite ease-in-out;
+}
+
+/* 4. Révélation Fluide au Défilement (Scroll Reveal) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 5. Header Micro-Animations */
+.landing-header {
+  transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.landing-header.scrolled {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
+  border-bottom-color: rgba(226, 232, 240, 0.9);
+}
+
+/* Logo Micro-Animation */
+.landing-logo-icon {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s ease;
+}
+
+.group:hover .landing-logo-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.4);
+}
+
+/* Nav Link Hover Underline Micro-Animation */
+.landing-nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.landing-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #2563eb;
+  border-radius: 9999px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.landing-nav-link:hover {
+  color: #0f172a;
+}
+
+.landing-nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* 6. Bouton Principal Hero (Animations On Hover & On Click) */
+.hero-primary-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  overflow: hidden;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: background-color 0.25s ease,
+              transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Balayage de lumière au survol (Hover Sheen) */
+.hero-primary-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.75s ease;
+}
+
+/* Effet Hover */
+.hero-primary-btn:hover {
+  background-color: #1e293b;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 36px -6px rgba(37, 99, 235, 0.35), 0 0 20px rgba(37, 99, 235, 0.25);
+}
+
+.hero-primary-btn:hover::after {
+  left: 150%;
+}
+
+.hero-primary-btn:hover .hero-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Effet Click (Tactile physical bounce & shockwave) */
+.hero-primary-btn:active {
+  transform: translateY(1px) scale(0.96);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.4);
+  transition-duration: 0.08s;
+}
+
+/* Onde de choc au clic */
+@keyframes heroClickRipple {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+.hero-primary-btn .btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+  animation: heroClickRipple 0.6s ease-out forwards;
+}
+
+/* Flèche animée */
+.hero-btn-arrow {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 7. Bouton Magnétique & Interactif Universel */
+.magnetic-btn {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s ease,
+              background-color 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.magnetic-btn:hover {
+  transform: translateY(-1.5px);
+}
+
+.magnetic-btn:active {
+  transform: translateY(0.5px) scale(0.98);
+}
+
+/* 8. Micro-Animations des Cartes Fonctionnalités & Problèmes */
+.landing-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+}
+
+.landing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+}
+
+/* Icônes avec animation d'échelle au survol de la carte */
+.landing-card-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.landing-card:hover .landing-card-icon {
+  transform: scale(1.1);
+}
+
+/* 9. Barre de Défilement Mobile & Tiroir */
+.mobile-nav-drawer {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease;
+}
+
+/* 10. Ombre et Lueur Délicate */
+.shadow-subtle-glow {
+  box-shadow: 0 12px 32px -4px rgba(37, 99, 235, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+}
+
